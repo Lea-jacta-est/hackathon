@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { Container, Grid } from 'semantic-ui-react';
 import axios from 'axios';
+import { withRouter } from "react-router";
 import CardsCharacters from './CardsCharacters';
 import Pagination from './Pagination';
 import LateralBar from './LateralBar';
-import Navbar from './Navbar';
 
 class Home extends React.Component {
   state = {
@@ -47,8 +47,7 @@ class Home extends React.Component {
     return (
 
       <Fragment>
-        <Navbar />
-        <Container style={{ marginTop: '8.5rem' }} fluid>
+        <Container style={{ marginTop: '8.5rem', textAlign: 'center' }} fluid>
           <Grid>
             <Grid.Column width={4}>
               <LateralBar
@@ -79,4 +78,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
