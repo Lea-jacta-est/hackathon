@@ -14,7 +14,8 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json')
+    axios
+      .get('/api/superheros')
       .then(resp => (resp.data))
       .then(data => this.setState({ content: data }))
   }

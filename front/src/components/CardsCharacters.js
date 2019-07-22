@@ -13,22 +13,22 @@ const CardsCharacters = ({ content, id }) => (
           <Link
             to={`/profil-hero/${character.id}`}
           >
-            <Image src={character.images.md} wrapped ui={false} />
+            <Image src={character.imageMd} wrapped ui={false} />
             <Card.Content >
               <Card.Header>{character.name}</Card.Header>
               <Card.Meta>
-                <span className='date'> {character.biography.placeOfBirth}</span>
+                <span className='date'> {character.placeOfBirth}</span>
               </Card.Meta>
               <Card.Description>
                 <List>
                   <List.Item>
-                    <Icon disabled name='non binary transgender' /> {character.appearance.gender}
+                    <Icon disabled name='non binary transgender' /> {character.gender}
                   </List.Item>
                   <List.Item>
-                    <Icon disabled name={character.appearance.race ? 'male' : " "} />  {character.appearance.race}
+                    <Icon disabled name={character.race ? 'male' : " "} />  {character.race}
                   </List.Item>
                   <List.Item>
-                    <Icon disabled name={character.biography.alignment === "good" ? 'smile' : 'frown outline'} /> {character.biography.alignment}
+                    <Icon disabled name={character.alignment === "good" ? 'smile' : 'frown outline'} /> {character.alignment}
                   </List.Item>
                 </List>
               </Card.Description>
