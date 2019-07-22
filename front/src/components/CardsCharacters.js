@@ -2,13 +2,15 @@ import React from 'react';
 import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react';
 
 
-const CardsCharacters = ({ content, gender, hair }) => (
+const CardsCharacters = ({ content, gender, hair, eye }) => (
 
   <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
       {content && content
         .filter(character => character.appearance.gender.includes(gender))
         .filter(character => character.appearance.hairColor.includes(hair))
+        .filter(character => character.appearance.eyeColor.includes(eye))
+
 
         .map(character =>
           <Card>
