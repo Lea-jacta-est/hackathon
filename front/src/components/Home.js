@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown} from 'semantic-ui-react';
-import logo from './image/logo';
+import { Menu, Dropdown, Header, Input } from 'semantic-ui-react';
+import logo from './image/logo.png';
 
 
 export default class MenuExampleInvertedSecondary extends Component {
@@ -12,25 +12,20 @@ export default class MenuExampleInvertedSecondary extends Component {
     const { activeItem } = this.state
 
     return (
-        <Menu inverted size='massive'>
+        <Menu fixted inverted size='massive'>
             <Menu.Item header>
-                <img src={logo}>
-                </img>
+                <Header as='h1' color='pink'>
+                 <img src={logo} alt="logo"/> 
+                   sitePasPorno.com
+                   </Header>
             </Menu.Item>
             <Menu.Item name='home' color="pink" active={activeItem === 'home'} onClick={this.handleItemClick} />
             <Menu.Item
             color="pink"
-            name='messages'
+            name='friends'
             active={activeItem === 'messages'}
             onClick={this.handleItemClick}
             />
-            <Menu.Item
-            color="pink"
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={this.handleItemClick}
-            />
-            <Menu.Menu position='right'>
             <Dropdown color="pink" item text='Category'>
                 <Dropdown.Menu>
                 <Dropdown.Item>English</Dropdown.Item>
@@ -38,6 +33,12 @@ export default class MenuExampleInvertedSecondary extends Component {
                 <Dropdown.Item>Spanish</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+            <Menu.Menu position='right'>
+            
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' />
+            </Menu.Item>
+            
             </Menu.Menu>
       </Menu>
     )
