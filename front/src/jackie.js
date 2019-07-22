@@ -1,0 +1,1 @@
+export const jackie="#ee0f7e";
