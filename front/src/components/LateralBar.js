@@ -1,62 +1,60 @@
-import React, { Component } from 'react'
-import { Dropdown, Icon, Input, Menu } from 'semantic-ui-react'
+import React from 'react'
+import { Dropdown, Icon, Input, Menu, Form, Radio } from 'semantic-ui-react';
 
-class LateralBar extends Component {
-  state = {}
+const LateralBar = ({ gender, toggleChange }) => (
+  <Menu vertical inverted fixed='left' style={{ marginTop: '4.7rem' }}>
+    <Menu.Item>
+      <Input placeholder='Search...' />
+    </Menu.Item>
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  render() {
-    const { activeItem } = this.state
-
-    return (
-      <Menu vertical inverted fixed='left'>
-        <Menu.Item>
-          <Input placeholder='Search...' />
-        </Menu.Item>
-
-        <Menu.Item>
-          Home
+    <Menu.Item>
+      Home
           <Menu.Menu>
-            <Menu.Item
-              name='search'
-              active={activeItem === 'search'}
-              onClick={this.handleItemClick}
-            >
-              Search
+        <Form>
+          <Form.Field>
+            <label>Gender</label>
+            <Radio
+              label="Female"
+              value="female"
+              checked={gender === 'female'}
+              onChange={toggleChange}
+            />
+            <Radio
+              label="Male"
+              value="male"
+              checked={gender === 'male'}
+              onChange={toggleChange}
+            />
+
+          </Form.Field>
+        </Form>
+        <Menu.Item name='add' >
+          Add
             </Menu.Item>
-            <Menu.Item name='add' active={activeItem === 'add'} onClick={this.handleItemClick}>
-              Add
+        <Menu.Item name='about' >
+          Remove
             </Menu.Item>
-            <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
-              Remove
-            </Menu.Item>
-          </Menu.Menu>
+      </Menu.Menu>
+    </Menu.Item>
+
+    <Menu.Item name='browse' >
+      <Icon name='grid layout' />
+      Browse
+        </Menu.Item>
+    <Menu.Item
+      name='messages'
+    >
+      Messages
         </Menu.Item>
 
-        <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleItemClick}>
-          <Icon name='grid layout' />
-          Browse
-        </Menu.Item>
-        <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        >
-          Messages
-        </Menu.Item>
-
-        <Dropdown item text='More'>
-          <Dropdown.Menu>
-            <Dropdown.Item icon='edit' text='Edit Profile' />
-            <Dropdown.Item icon='globe' text='Choose Language' />
-            <Dropdown.Item icon='settings' text='Account Settings' />
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
-    )
-  }
-}
-
+    <Dropdown item text='More'>
+      <Dropdown.Menu>
+        <Dropdown.Item icon='edit' text='Edit Profile' />
+        <Dropdown.Item icon='globe' text='Choose Language' />
+        <Dropdown.Item icon='settings' text='Account Settings' />
+      </Dropdown.Menu>
+    </Dropdown>
+  </Menu >
+)
 export default LateralBar;
 

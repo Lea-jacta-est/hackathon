@@ -8,7 +8,8 @@ import logo from './image/logo.png';
 class Home extends React.Component {
   state = {
     content: [],
-    activeItem: 'home'
+    activeItem: 'home',
+    gender: ''
   }
 
 
@@ -18,10 +19,15 @@ class Home extends React.Component {
       .then(data => this.setState({ content: data }))
   }
 
+  toggleChange = (event, { value }) => {
+    this.setState({ gender: value });
+  }
+
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { content, activeItem } = this.state;
+    const { content, activeItem, gender } = this.state;
     return (
       <Fragment>
         <Menu inverted size='massive'>
@@ -55,7 +61,7 @@ class Home extends React.Component {
         <Container fluid>
           <Grid>
             <Grid.Column width={4}>
-              <LateralBar />
+              <LateralBar toggleChange={this.toggleChange} />
             </Grid.Column>
             <Grid.Column width={10}>
               <CardsCharacters content={content} />

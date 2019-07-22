@@ -1,17 +1,14 @@
 import React from 'react';
-import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react'
-
-
-
+import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react';
 
 
 const CardsCharacters = ({ content }) => (
 
-  <Container>
+  <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
       {content && content.map(character =>
         <Card>
-          <Image src={character.images.md} wrapped ui={false} />
+          <Image src={character.images.md} />
           <Card.Content>
             <Card.Header>{character.name}</Card.Header>
             <Card.Meta>
