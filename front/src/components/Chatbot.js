@@ -45,7 +45,10 @@ class EscalationBot extends Component {
               id: "6",
               component: (
                 <div>
-                  <img src="https://nsa40.casimages.com/img/2019/07/22//190722082106434293.png" />
+                  <img
+                    src="https://nsa40.casimages.com/img/2019/07/22//190722082106434293.png"
+                    alt="eggplant"
+                  />
                 </div>
               )
             }
