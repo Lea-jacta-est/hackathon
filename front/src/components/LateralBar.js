@@ -16,17 +16,17 @@ class LateralBar extends React.Component {
             <Menu.Item>
               <Form>
                 <Form.Field>
-                  <label>Gender</label>
-                  <Radio
+                  <label style={{ color: 'white' }}>Gender</label>
+                  <Radio style={{ color: 'white' }}
                     label="Female"
-                    value="female"
-                    checked={gender === 'female'}
+                    value="Female"
+                    checked={gender === 'Female'}
                     onChange={toggleChange}
                   />
-                  <Radio
+                  <Radio style={{ color: 'white' }}
                     label="Male"
-                    value="male"
-                    checked={gender === 'male'}
+                    value="Male"
+                    checked={gender === 'Male'}
                     onChange={toggleChange}
                   />
                 </Form.Field>
