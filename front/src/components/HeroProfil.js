@@ -1,73 +1,59 @@
-import React, { useState } from 'react';
-import { Grid, Image, Container } from 'semantic-ui-react';
-import axios from 'axios';
-import StarRatings from 'react-star-ratings';
-import NavBarProfile from './NavbarProfile'
+import React, { useState } from "react";
+import { Grid, Image, Container } from "semantic-ui-react";
+import axios from "axios";
+import NavBarProfile from "./NavbarProfile";
+import { Radar } from "react-chartjs-2";
 
-
-
-const HeroProfil = (props) => {
+const HeroProfil = props => {
   const [data, setData] = useState([]);
   React.useEffect(() => {
     const { id } = props.match.params;
     const fetchData = async () => {
-      const result = await axios(
-        `/api/superheros/${id}`
-      );
+      const result = await axios(`/api/superheros/${id}`);
       setData(result.data[0]);
     };
     fetchData();
   }, [props.match.params]);
 
+  const stat = {
+    labels: [
+      "Intelligence",
+      "Combat",
+      "Durability",
+      "Power",
+      "Speed",
+      "Strength"
+    ],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgba(179,181,198,0.2)",
+        borderColor: "#ee0f7e",
+        pointBackgroundColor: "rgba(179,181,198,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(179,181,198,1)",
+        data: [
+          data.intelligence,
+          data.combat,
+          data.durability,
+          data.power,
+          data.speed,
+          data.strength
+        ]
+      }
+    ]
+  };
+
   return (
-    <Container style={{ marginTop: '8.5rem', textAlign: 'center' }} fluid>
+    <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
       <NavBarProfile />
 
       <Grid.Column width={12}>
         <h1>{data.name}</h1>
         <Image src={data.imageLg} centered />
-        <h1>Intelligence</h1>
-        <StarRatings
-          rating={data.intelligence && data.intelligence * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='intelligence'
-        />
-        <h1>Combat</h1>
-        <StarRatings
-          rating={data.combat && data.combat * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='combat'
-        />
-        <h1>Durability</h1>
-        <StarRatings
-          rating={data.durability && data.durability * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='durability'
-        />
-        <h1>Power</h1>
-        <StarRatings
-          rating={data.power && data.power * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='power'
-        />
-        <h1>Speed</h1>
-        <StarRatings
-          rating={data.speed && data.speed * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='speed'
-        />
-        <h1>Strength</h1>
-        <StarRatings
-          rating={data.strength && data.strength * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='strength'
-        />
+        <Radar data={stat} />
+
         <h1>{data.gender}</h1>
         <h1>{data.race}</h1>
         <h1>{data.height}</h1>
@@ -83,8 +69,7 @@ const HeroProfil = (props) => {
         <h1>{data.relatives}</h1>
       </Grid.Column>
     </Container>
-  )
-}
+  );
+};
 
 export default HeroProfil;
-
