@@ -7,12 +7,12 @@ import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react'
 
 const CardsCharacters = ({ content }) => (
 
-  <Container>
+  <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
       {content && content.map(character =>
         <Card>
           <Image src={character.images.md} wrapped ui={false} />
-          <Card.Content>
+          <Card.Content >
             <Card.Header>{character.name}</Card.Header>
             <Card.Meta>
               <span className='date'> {character.biography.placeOfBirth}</span>
