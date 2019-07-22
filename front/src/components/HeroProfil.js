@@ -78,7 +78,6 @@ const HeroProfil = (props) => {
         <h1>{data.work && data.work.base}</h1>
         <h1>{data.connections && data.connections.groupAffiliation}</h1>
         <h1>{data.connections && data.connections.relatives.split("?").join('-')}</h1>
-
       </Grid.Column>
     </Container>
   )
