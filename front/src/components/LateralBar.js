@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Icon, Menu, Form, Radio, Button, Select } from 'semantic-ui-react';
+import { Dropdown, Menu, Form, Radio, Select } from 'semantic-ui-react';
 
 
 const colorHair = [
@@ -80,7 +80,8 @@ class LateralBar extends React.Component {
               <Form>
                 <Form.Field>
                   <label style={{ color: 'white' }}>Gender</label>
-                  <Radio style={{ color: 'white' }}
+                  <Radio
+                    style={{ Color: 'white' }}
                     label="Female"
                     value="Female"
                     checked={gender === 'Female'}
@@ -115,24 +116,10 @@ class LateralBar extends React.Component {
               </Form>
             </Menu.Item>
 
-            <Menu.Item name='add' >
-              Add
-            </Menu.Item>
-            <Menu.Item name='about' >
-              Remove
-            </Menu.Item>
+
           </Menu.Menu>
         </Menu.Item>
 
-        <Menu.Item name='browse' >
-          <Icon name='grid layout' />
-          Browse
-        </Menu.Item>
-        <Menu.Item
-          name='messages'
-        >
-          Messages
-        </Menu.Item>
 
         <Dropdown item text='More'>
           <Dropdown.Menu>
