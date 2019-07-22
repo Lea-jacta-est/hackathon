@@ -1,18 +1,17 @@
 import React, { Fragment } from 'react';
+import { Container, Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import CardsCharacters from './CardsCharacters';
 import Pagination from './Pagination';
 
-import { Container, Grid, Menu, Dropdown } from 'semantic-ui-react';
 import LateralBar from './LateralBar';
-import logo from './image/logo.png';
+import Navbar from './Navbar';
 
 class Home extends React.Component {
   state = {
     content: [],
     activePage: 1,
     cardPerPage: 12,
-    activeItem: 'home'
   }
 
   componentDidMount() {
@@ -21,45 +20,18 @@ class Home extends React.Component {
       .then(data => this.setState({ content: data }))
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage });
 
 
   render() {
-    const { content, activePage, cardPerPage, activeItem } = this.state;
+    const { content, activePage, cardPerPage } = this.state;
     const indexOfLastCard = activePage * cardPerPage;
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
     const currentContent = content.slice(indexOfFirstCard, indexOfLastCard)
     return (
+
       <Fragment>
-        <Menu inverted size='massive' fixed="top">
-          <Menu.Item header>
-            <img src={logo} alt='logo'>
-            </img>
-          </Menu.Item>
-          <Menu.Item name='home' color="pink" active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item
-            color="pink"
-            name='messages'
-            active={activeItem === 'messages'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            color="pink"
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Menu position='right'>
-            <Dropdown color="pink" item text='Category'>
-              <Dropdown.Menu>
-                <Dropdown.Item>English</Dropdown.Item>
-                <Dropdown.Item>Russian</Dropdown.Item>
-                <Dropdown.Item>Spanish</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu.Menu>
-        </Menu>
+        <Navbar />
         <Container fluid>
           <Grid>
             <Grid.Column width={4}>
