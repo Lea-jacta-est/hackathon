@@ -19,12 +19,11 @@ class Home extends React.Component {
       .then(data => this.setState({ content: data }))
   }
 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   toggleChange = (event, { value }) => {
     this.setState({ gender: value });
   }
-
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
     const { content, activeItem, gender } = this.state;
@@ -59,9 +58,10 @@ class Home extends React.Component {
           </Menu.Menu>
         </Menu>
         <Container fluid>
+
           <Grid>
             <Grid.Column width={4}>
-              <LateralBar toggleChange={this.toggleChange} />
+              <LateralBar toggleChange={this.toggleChange} gender={gender} />
             </Grid.Column>
             <Grid.Column width={10}>
               <CardsCharacters content={content} />
