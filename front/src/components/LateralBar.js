@@ -1,59 +1,69 @@
-import React, { Component } from 'react'
-import { Dropdown, Icon, Menu } from 'semantic-ui-react'
+import React, { Component } from "react";
+import { Dropdown, Icon, Menu } from "semantic-ui-react";
 
 class LateralBar extends Component {
-  state = {}
+  state = {};
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state
+    const { activeItem } = this.state;
 
     return (
-      <Menu style={{ marginTop: '7.2rem' }} vertical inverted fixed='left'>
-
+      <Menu style={{ marginTop: "7.2rem" }} vertical inverted fixed="left">
         <Menu.Item>
           Home
           <Menu.Menu>
             <Menu.Item
-              name='search'
-              active={activeItem === 'search'}
+              name="search"
+              active={activeItem === "search"}
               onClick={this.handleItemClick}
             >
               Search
             </Menu.Item>
-            <Menu.Item name='add' active={activeItem === 'add'} onClick={this.handleItemClick}>
+            <Menu.Item
+              name="add"
+              active={activeItem === "add"}
+              onClick={this.handleItemClick}
+            >
               Add
             </Menu.Item>
-            <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
+            <Menu.Item
+              name="about"
+              active={activeItem === "about"}
+              onClick={this.handleItemClick}
+            >
               Remove
             </Menu.Item>
           </Menu.Menu>
         </Menu.Item>
 
-        <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleItemClick}>
-          <Icon name='grid layout' />
+        <Menu.Item
+          name="browse"
+          active={activeItem === "browse"}
+          onClick={this.handleItemClick}
+        >
+          <Icon name="grid layout" />
           Browse
         </Menu.Item>
         <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
+          name="messages"
+          active={activeItem === "messages"}
           onClick={this.handleItemClick}
         >
           Messages
         </Menu.Item>
 
-        <Dropdown item text='More'>
+        <Dropdown item text="More">
           <Dropdown.Menu>
-            <Dropdown.Item icon='edit' text='Edit Profile' />
-            <Dropdown.Item icon='globe' text='Choose Language' />
-            <Dropdown.Item icon='settings' text='Account Settings' />
+            <Dropdown.Item icon="edit" text="Edit Profile" />
+            <Dropdown.Item icon="globe" text="Choose Language" />
+            <Dropdown.Item icon="settings" text="Account Settings" />
           </Dropdown.Menu>
         </Dropdown>
       </Menu>
-    )
+    );
   }
 }
 
 export default LateralBar;
-
