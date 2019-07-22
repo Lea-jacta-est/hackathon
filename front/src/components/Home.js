@@ -32,7 +32,7 @@ class Home extends React.Component {
 
       <Fragment>
         <Navbar />
-        <Container fluid>
+        <Container style={{ marginTop: '8.5rem' }} fluid>
           <Grid>
             <Grid.Column width={4}>
               <LateralBar />
