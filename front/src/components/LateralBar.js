@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Icon, Input, Menu, Form, Radio } from 'semantic-ui-react';
+import { Dropdown, Icon, Menu, Form, Radio } from 'semantic-ui-react';
 
 class LateralBar extends React.Component {
   state = {
@@ -8,10 +8,7 @@ class LateralBar extends React.Component {
   render() {
     const { toggleChange, gender } = this.props;
     return (
-      <Menu vertical inverted fixed='left' style={{ marginTop: '4.7rem' }}>
-        <Menu.Item>
-          <Input placeholder='Search...' />
-        </Menu.Item>
+      <Menu style={{ marginTop: '7.2rem' }} vertical inverted fixed='left'>
 
         <Menu.Item>
           Home
