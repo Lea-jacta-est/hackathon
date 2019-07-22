@@ -1,26 +1,33 @@
 import React from 'react';
-import { Card, Icon, Image, Container, Grid } from 'semantic-ui-react'
+import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react'
 
 const CardsCharacters = ({ content }) => (
 
-  <Container>
+  <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
       {content && content.map((character) =>
         <Card key={character.id}>
           <Image src={character.images.md} wrapped ui={false} />
-          <Card.Content>
+          <Card.Content >
             <Card.Header>{character.name}</Card.Header>
             <Card.Meta>
-              <span className='date'>Joined in 2015</span>
+              <span className='date'> {character.biography.placeOfBirth}</span>
             </Card.Meta>
             <Card.Description>
-              Matthew is a musician living in Nashville.
-                </Card.Description>
+              <List>
+                <List.Item>
+                  <Icon disabled name='non binary transgender' /> {character.appearance.gender}
+                </List.Item>
+                <List.Item>
+                  <Icon disabled name={character.appearance.race ? 'male' : " "} />  {character.appearance.race}
+                </List.Item>
+                <List.Item>
+                  <Icon disabled name={character.biography.alignment === "good" ? 'smile' : 'frown outline'} /> {character.biography.alignment}
+                </List.Item>
+              </List>
+            </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <Icon name='user' />
-            22 Friends
-              </Card.Content>
+
         </Card>
       )}
     </Grid>
