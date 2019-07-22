@@ -5,8 +5,8 @@ const CardsCharacters = ({ content }) => (
 
   <Container>
     <Grid>
-      {content && content.map(character =>
-        <Card>
+      {content && content.map((character) =>
+        <Card key={character.id}>
           <Image src={character.images.md} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{character.name}</Card.Header>

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import axios from 'axios';
 import CardsCharacters from './CardsCharacters';
+import Pagination from './Pagination';
 
 
 class Home extends React.Component {
   state = {
-    content: []
+    content: [],
+    activePage: 1,
+    cardPerPage: 12,
   }
 
   componentDidMount() {
@@ -14,11 +17,23 @@ class Home extends React.Component {
       .then(data => this.setState({ content: data }))
   }
 
-  render() {
-    const { content } = this.state;
-    return (
+  handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
 
-      <CardsCharacters content={content} />
+  render() {
+    const { content, activePage, cardPerPage } = this.state;
+    const indexOfLastCard = activePage * cardPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardPerPage;
+    const currentContent = content.slice(indexOfFirstCard, indexOfLastCard)
+    return (
+      <Fragment>
+        <Pagination
+          contentLength={content.length}
+          activePage={activePage}
+          onPageChange={this.handlePaginationChange}
+          cardPerPage={cardPerPage}
+        />
+        <CardsCharacters content={currentContent} />
+      </Fragment>
     );
   }
 }
