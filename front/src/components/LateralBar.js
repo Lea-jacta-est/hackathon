@@ -1,12 +1,12 @@
 import React from 'react'
-import { Dropdown, Icon, Menu, Form, Radio } from 'semantic-ui-react';
+import { Dropdown, Icon, Menu, Form, Radio, Button } from 'semantic-ui-react';
 
 class LateralBar extends React.Component {
   state = {
   }
 
   render() {
-    const { toggleChange, gender } = this.props;
+    const { toggleChange, gender, toggleHair, hair } = this.props;
     return (
       <Menu style={{ marginTop: '7.2rem' }} vertical inverted fixed='left'>
 
@@ -30,6 +30,24 @@ class LateralBar extends React.Component {
                     onChange={toggleChange}
                   />
                 </Form.Field>
+                <Button
+                  value="blond"
+                  inverted color='yellow'
+                  onChange={hair === 'blond'}
+                  onClick={toggleHair}
+
+                >
+                  Blond
+               </Button>
+                <Button
+                  value="black"
+                  inverted color='black'
+                  onChange={hair === 'black'}
+                  onClick={toggleHair}
+
+                >
+                  Black
+               </Button>
               </Form>
             </Menu.Item>
 

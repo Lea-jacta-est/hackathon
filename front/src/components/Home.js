@@ -13,6 +13,10 @@ class Home extends React.Component {
     gender: '',
     activePage: 1,
     cardPerPage: 12,
+    hair: '',
+    eye: '',
+    hobbies: '',
+
   }
 
   componentDidMount() {
@@ -27,11 +31,14 @@ class Home extends React.Component {
 
   toggleChange = (event, { value }) => {
     this.setState({ gender: value });
+  }
+  toggleHair = (event, { value }) => {
+    this.setState({ hair: value });
 
   }
 
   render() {
-    const { content, activePage, cardPerPage, gender } = this.state;
+    const { content, activePage, cardPerPage, gender, hair } = this.state;
     const indexOfLastCard = activePage * cardPerPage;
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
     const currentContent = content.slice(indexOfFirstCard, indexOfLastCard)
@@ -42,7 +49,11 @@ class Home extends React.Component {
         <Container style={{ marginTop: '8.5rem' }} fluid>
           <Grid>
             <Grid.Column width={4}>
-              <LateralBar toggleChange={this.toggleChange} gender={gender} />
+              <LateralBar
+                toggleChange={this.toggleChange}
+                gender={gender}
+                hair={hair}
+                toggleHair={this.toggleHair} />
             </Grid.Column>
             <Grid.Column width={10}>
               <Pagination
@@ -51,7 +62,10 @@ class Home extends React.Component {
                 onPageChange={this.handlePaginationChange}
                 cardPerPage={cardPerPage}
               />
-              <CardsCharacters content={content} gender={gender} />
+              <CardsCharacters
+                content={currentContent}
+                gender={gender}
+                hair={hair} />
             </Grid.Column>
           </Grid>
         </Container>

@@ -2,12 +2,14 @@ import React from 'react';
 import { Card, Icon, Image, Container, Grid, List } from 'semantic-ui-react';
 
 
-const CardsCharacters = ({ content, gender }) => (
+const CardsCharacters = ({ content, gender, hair }) => (
 
   <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
       {content && content
         .filter(character => character.appearance.gender.includes(gender))
+        .filter(character => character.appearance.hairColor.includes(hair))
+
         .map(character =>
           <Card>
             <Image src={character.images.md} />
@@ -28,6 +30,10 @@ const CardsCharacters = ({ content, gender }) => (
                     <Icon disabled name={character.biography.alignment === "good" ? 'smile' : 'frown outline'} /> {character.biography.alignment}
                   </List.Item>
                 </List>
+                <List.Item>
+                  <Icon disabled name='non binary transgender' /> {character.appearance.hairColor}
+                </List.Item>
+
               </Card.Description>
             </Card.Content>
 
