@@ -1,10 +1,6 @@
 import React from 'react';
 import { Card, Icon, Image, Container, Grid } from 'semantic-ui-react'
 
-
-
-
-
 const CardsCharacters = ({ content }) => (
 
   <Container>
