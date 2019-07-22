@@ -30,7 +30,7 @@ class Home extends React.Component {
     const { content, activeItem, gender } = this.state;
     return (
       <Fragment>
-        <Menu inverted size='massive'>
+        <Menu inverted size='massive' fixed="top">
           <Menu.Item header>
             <img src={logo} alt='logo'>
             </img>
