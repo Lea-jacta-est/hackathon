@@ -10,7 +10,7 @@ class LateralBar extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu vertical inverted fixed='left'>
+      <Menu style={{ marginTop: '4.7rem' }} vertical inverted fixed='left'>
         <Menu.Item>
           <Input placeholder='Search...' />
         </Menu.Item>
