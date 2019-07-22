@@ -1,12 +1,12 @@
 .jackie_text {
-    color:#ee0f7e;
+    color: #ee0f7e;
 }
 
 .jackie_bg {
-    background-color:#ee0f7e;
+    background-color: #ee0f7e;
 }
 
-.ui.inverted.menu .item, .ui.inverted.menu .item > a:not(.ui) {
+.ui.inverted.menu .item, .ui.inverted.menu .item>a:not(.ui) {
     background: 0 0;
     color: #ee0f7e !important;
 }
@@ -16,7 +16,7 @@
     color: #fff !important;
 }
 
-.ui.inverted.menu .item, .ui.inverted.menu .item > a:not(.ui) {
+.ui.inverted.menu .item, .ui.inverted.menu .item>a:not(.ui) {
     background: 0 0;
     color: #ee0f7e !important;
 }
@@ -24,4 +24,10 @@
 .ui.inverted.menu .active.item:hover {
     background: #ee0f7e !important;
     color: #fff !important;
+}
+
+.inverted.menu {
+    background: 0 0;
+    font-weight: 800;
+    color: #e03997 !important;
 }

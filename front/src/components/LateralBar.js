@@ -15,9 +15,9 @@ class LateralBar extends React.Component {
           <Menu.Menu>
             <Menu.Item>
               <Form>
-                <Form.Field>
+                <Form.Field >
                   <label style={{ color: 'white' }}>Gender</label>
-                  <Radio style={{ color: 'white' }}
+                  <Radio style={{ text: 'white' }}
                     label="Female"
                     value="Female"
                     checked={gender === 'Female'}
@@ -32,25 +32,10 @@ class LateralBar extends React.Component {
                 </Form.Field>
               </Form>
             </Menu.Item>
-
-            <Menu.Item name='add' >
-              Add
-            </Menu.Item>
-            <Menu.Item name='about' >
-              Remove
-            </Menu.Item>
           </Menu.Menu>
         </Menu.Item>
 
-        <Menu.Item name='browse' >
-          <Icon name='grid layout' />
-          Browse
-        </Menu.Item>
-        <Menu.Item
-          name='messages'
-        >
-          Messages
-        </Menu.Item>
+
 
         <Dropdown item text='More'>
           <Dropdown.Menu>

@@ -35,6 +35,26 @@ class Home extends React.Component {
     const indexOfLastCard = activePage * cardPerPage;
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
     const currentContent = content.slice(indexOfFirstCard, indexOfLastCard)
+
+    let hairColor = content
+      .map(color => (color.appearance.hairColor));
+    let arrhairColor = hairColor
+      .reduce((arrhairColor, item) => {
+        return arrhairColor
+          .includes(item) ? arrhairColor : arrhairColor.concat([item]);
+      }, [])
+      .map(color => <div>{color}</div>)
+
+    let eyeColor = content
+      .map(color => (color.appearance.eyeColor));
+    let arreyeColor = eyeColor
+      .reduce((arreyeColor, item) => {
+        return arreyeColor
+          .includes(item) ? arreyeColor : arreyeColor.concat([item]);
+      }, [])
+      .map(color => <div>{color}</div>)
+
+
     return (
 
       <Fragment>
