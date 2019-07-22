@@ -6,13 +6,11 @@ import {
   Route
 } from 'react-router-dom';
 import HeroProfil from './components/HeroProfil';
-import Navbar from './components/Navbar';
 
 
 function App() {
   return (
     <div>
-      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/profil-hero/:id" component={HeroProfil} />

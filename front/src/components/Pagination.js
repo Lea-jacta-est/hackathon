@@ -6,8 +6,6 @@ const PaginationExamplePagination = ({ contentLength, activePage, onPageChange, 
     <Pagination
       defaultActivePage={1}
       totalPages={Math.ceil(contentLength / cardPerPage)}
-      boundaryRange={2}
-      siblingRange={1}
       activePage={activePage}
       onPageChange={onPageChange}
     />

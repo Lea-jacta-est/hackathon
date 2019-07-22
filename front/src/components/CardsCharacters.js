@@ -4,16 +4,22 @@ import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
 
 
-const CardsCharacters = ({ content, id }) => (
+const CardsCharacters = ({ content, gender, hair, eye, search, id }) => (
 
   <Container style={{ marginTop: '4.5rem' }}>
     <Grid>
-      {content && content.map((character) =>
-        <Card key={character.id}>
-          <Link
-            to={`/profil-hero/${character.id}`}
-          >
-            <Image src={character.imageMd} wrapped ui={false} />
+      {content && content
+        .filter(character => character.gender.includes(gender))
+        .filter(character => character.hairColor.includes(hair))
+        .filter(character => character.eyeColor.includes(eye))
+        .filter(character => character.name.toLowerCase().includes(search))
+        .map((character) =>
+          <Card key={character.id}>
+            <Link
+              to={`/profil-hero/${character.id}`}
+            >
+              <Image src={character.imageMd} wrapped ui={false} />
+            </Link>
             <Card.Content >
               <Card.Header>{character.name}</Card.Header>
               <Card.Meta>
@@ -33,10 +39,8 @@ const CardsCharacters = ({ content, id }) => (
                 </List>
               </Card.Description>
             </Card.Content>
-          </Link>
-
-        </Card>
-      )}
+          </Card>
+        )}
     </Grid>
 
   </Container >

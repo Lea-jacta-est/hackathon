@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Menu, Dropdown, Header, Input } from 'semantic-ui-react';
+import { Menu, Dropdown, Header } from 'semantic-ui-react';
 import logo from './image/logo.png';
 
 class Navbar extends React.Component {
@@ -11,7 +11,6 @@ class Navbar extends React.Component {
 
   render() {
     const { activeItem } = this.state;
-    const { handleSearch } = this.props;
     return (
 
       <Fragment>
@@ -37,13 +36,6 @@ class Navbar extends React.Component {
               <Dropdown.Item>Spanish</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <Input icon='search'
-                placeholder='Search...'
-                onChange={handleSearch} />
-            </Menu.Item>
-          </Menu.Menu>
         </Menu>
       </Fragment>
     );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Grid, Image, Container } from 'semantic-ui-react';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
+import NavBarProfile from './NavbarProfile'
 
 
 
@@ -20,6 +21,8 @@ const HeroProfil = (props) => {
 
   return (
     <Container style={{ marginTop: '8.5rem', textAlign: 'center' }} fluid>
+      <NavBarProfile />
+
       <Grid.Column width={12}>
         <h1>{data.name}</h1>
         <Image src={data.imageLg} centered />
