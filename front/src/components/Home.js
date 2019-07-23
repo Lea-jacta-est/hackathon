@@ -17,7 +17,7 @@ class Home extends React.Component {
     hair: '',
     eye: '',
     hobbies: '',
-    search: ''
+    search: '',
 
   }
 
@@ -92,6 +92,7 @@ class Home extends React.Component {
                 activePage={activePage}
                 onPageChange={this.handlePaginationChange}
                 cardPerPage={cardPerPage}
+                content={content}
               />
               <CardsCharacters
                 content={currentContent}
