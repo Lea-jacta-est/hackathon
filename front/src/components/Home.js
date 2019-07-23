@@ -42,9 +42,7 @@ class Home extends React.Component {
   toggleGender = (event, { value }) => {
     this.setState({ gender: value });
   };
-  toggleFav = (event, { value }) => {
-    this.setState({ fav: value });
-  };
+
 
 
   handleSearch = e => {
@@ -55,8 +53,6 @@ class Home extends React.Component {
     const newFav = this.state.fav;
     newFav.push(id);
     this.setState({ fav: newFav })
-    console.log('id:', id)
-    console.log('new state:', newFav)
 
   }
 
@@ -76,9 +72,10 @@ class Home extends React.Component {
 
     return (
       <Fragment>
-        <Navbar handleSearch={this.handleSearch}
+        <Navbar
+          content={this.state.content}
+          handleSearch={this.handleSearch}
           listOfFav={this.state.fav}
-          toggleFav={this.toggleFav}
         />
         <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
           <Grid>

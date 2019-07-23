@@ -16,18 +16,19 @@ class Navbar extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { handleSearch, listOfFav, toggleFav } = this.props;
+    const { handleSearch, listOfFav, toggleFav, content } = this.props;
 
     const { activeItem } = this.state;
-
 
     const ScrollingFav =
       listOfFav.map(item => {
         const TOTO = {}
 
-        TOTO.key = String(item);
-        TOTO.value = String(item);
-        TOTO.text = String(item);
+        TOTO.key = content[item].name;
+        TOTO.value = content[item].name;
+        TOTO.text = content[item].name;
+        TOTO.image = content[item].imageXs
+
         return TOTO
 
 
@@ -55,6 +56,10 @@ class Navbar extends React.Component {
               <Dropdown.Item>Popular</Dropdown.Item>
               <Dropdown.Item>Most View</Dropdown.Item>
               <Dropdown.Item>Amateur</Dropdown.Item>
+              <Dropdown.Item>Quic'n'Dirty</Dropdown.Item>
+              <Dropdown.Item>Open Source in your Area</Dropdown.Item>
+
+
             </Dropdown.Menu>
           </Dropdown>
 
@@ -67,9 +72,8 @@ class Navbar extends React.Component {
             />
             <Select
               color="pink"
-              onChange={() => toggleFav(ScrollingFav)}
-              option={ScrollingFav}
-              placeholder="My basket"
+              options={ScrollingFav}
+              placeholder="My Crush"
 
             />
           </Menu.Item>
