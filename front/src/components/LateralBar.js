@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Radio, Select, Container } from "semantic-ui-react";
+import { Menu, Select, Container } from "semantic-ui-react";
 
 const colorHair = [
   { key: "No Hair", value: "No Hair", text: "No Hair" },
@@ -67,7 +67,7 @@ class LateralBar extends React.Component {
   state = {};
 
   render() {
-    const { toggleChange, gender, toggleHair, toggleEye } = this.props;
+    const { toggleChange, toggleHair, toggleEye } = this.props;
 
     return (
       <Container textAlign="left" style={{ paddingLeft: "10px" }}>
