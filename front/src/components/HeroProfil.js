@@ -56,6 +56,18 @@ const HeroProfil = props => {
     ]
   };
 
+  const sendMail = async (e) => {
+    e.preventDefault();
+    await axios.post('/send/')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
   const options = {
     legend: {
       display: false
@@ -97,7 +109,7 @@ const HeroProfil = props => {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>Height: {data.height}</Table.Cell>
-                  <Table.Cell>weiht: {data.weight}</Table.Cell>
+                  <Table.Cell>Weight: {data.weight}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Hair color: {data.hairColor}</Table.Cell>
@@ -141,7 +153,7 @@ const HeroProfil = props => {
           </Grid.Column>
         </Grid.Row>
         <Button color="pink" style={{ margin: "auto" }}>
-          <Icon name="mail" />
+          <Icon name="mail" type="submit" onClick={sendMail} />
           Send message
         </Button>
       </Grid>
