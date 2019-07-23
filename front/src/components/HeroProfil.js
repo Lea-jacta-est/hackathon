@@ -54,6 +54,18 @@ const HeroProfil = props => {
     ]
   };
 
+  const sendMail = async (e) => {
+    e.preventDefault();
+    await axios.post('/send/')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
   const options = {
     legend: {
       display: false
@@ -139,7 +151,7 @@ const HeroProfil = props => {
           </Grid.Column>
         </Grid.Row>
         <Button color="pink" style={{ margin: "auto" }}>
-          <Icon name="mail" />
+          <Icon name="mail" type="submit" onClick={sendMail} />
           Send message
         </Button>
       </Grid>
