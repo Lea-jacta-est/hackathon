@@ -59,10 +59,10 @@ const HeroProfil = props => {
     await axios.post('/send/')
       .then(function (response) {
         console.log(response);
-      })w
-        .catch(function (error) {
-          console.log(error);
-        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
 
