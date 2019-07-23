@@ -12,11 +12,7 @@ const colorHair = [
   { key: "Pink", value: "Pink", text: "Pink" },
   { key: "Red", value: "Red", text: "Red" },
   { key: "Auburn", value: "Auburn", text: "Auburn" },
-  {
-    key: "Strawberry Blond",
-    value: "Strawberry Blond",
-    text: "Strawberry Blond"
-  },
+  { key: "Strawberry Blond", value: "Strawberry Blond", text: "Strawberry Blond" },
   { key: "black", value: "black", text: "black" },
   { key: "Blue", value: "Blue", text: "Blue" },
   { key: "Green", value: "Green", text: "Green" },
@@ -50,11 +46,7 @@ const colorEye = [
   { key: "Silver", value: "Silver", text: "Silver" },
   { key: "Yellow / Red", value: "Yellow / Red", text: "Yellow / Red" },
   { key: "Grey", value: "Grey", text: "Grey" },
-  {
-    key: "Yellow (without irises)",
-    value: "Yellow (without irises)",
-    text: "Yellow (without irises)"
-  },
+  { key: "Yellow (without irises)", value: "Yellow (without irises)", text: "Yellow (without irises)" },
   { key: "Gold", value: "Gold", text: "Gold" },
   { key: "Blue / White", value: "Blue / White", text: "Blue / White" },
   { key: "Hazel", value: "Hazel", text: "Hazel" },
@@ -66,17 +58,23 @@ const colorEye = [
   { key: "Red / Orange", value: "Red / Orange", text: "Red / Orange" },
   { key: "Bown", value: "Bown", text: "Bown" }
 ];
-
+const genderChoice = [
+  { key: "Male", value: "Male", text: "Male" },
+  { key: "Female", value: "Female", text: "Female" },
+  { key: "Reptilien", value: "Reptilien", text: "Reptilien" },
+];
 class LateralBar extends React.Component {
   state = {};
 
   render() {
     const { toggleChange, gender, toggleHair, toggleEye } = this.props;
+
     return (
       <Container textAlign="left" style={{ paddingLeft: "10px" }}>
         <Menu style={{ marginTop: "7.2rem" }} vertical inverted fixed="left">
-          <Menu.Item>
-            <Menu.Header>Genre</Menu.Header>
+          {/* Gender avec radio */}
+          {/* <Menu.Item>
+            <Menu.Header>Gender</Menu.Header>
             <Menu.Menu>
               <Menu.Item>
                 <Menu.Item>
@@ -99,11 +97,22 @@ class LateralBar extends React.Component {
                 </Menu.Item>
               </Menu.Item>
             </Menu.Menu>
+          </Menu.Item> */}
+          {/* Gender sans radio */}
+          <Menu.Item>
+            <Menu.Header>Gender</Menu.Header>
+            <Menu.Menu>
+              <Menu.Item>
+                <Select
+                  onChange={toggleChange}
+                  placeholder="Gender"
+                  options={genderChoice}
+                />
+              </Menu.Item>
+            </Menu.Menu>
           </Menu.Item>
-
           <Menu.Item>
             <Menu.Header>Eyes Color</Menu.Header>
-
             <Menu.Menu>
               <Menu.Item>
                 <Select

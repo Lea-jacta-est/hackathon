@@ -25,7 +25,12 @@ class Navbar extends React.Component {
               </Header>
             </Link>
           </Menu.Item>
-
+          <Menu.Item
+            color="pink"
+            name="Sign Up"
+            active={activeItem === "Sign Up"}
+            onClick={this.handleItemClick}
+          />
           <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
               <Dropdown.Item>English</Dropdown.Item>
@@ -33,12 +38,6 @@ class Navbar extends React.Component {
               <Dropdown.Item>Spanish</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Item
-            color="pink"
-            name="Sign Up"
-            active={activeItem === "Sign Up"}
-            onClick={this.handleItemClick}
-          />
           <Menu.Menu position="right">
             <Menu.Item>
               <Input

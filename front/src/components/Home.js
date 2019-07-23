@@ -38,6 +38,9 @@ class Home extends React.Component {
   toggleEye = (event, { value }) => {
     this.setState({ eye: value });
   };
+  toggleGender = (event, { value }) => {
+    this.setState({ gender: value });
+  };
 
   handleSearch = e => {
     this.setState({ search: e.target.value });
