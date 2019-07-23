@@ -16,7 +16,7 @@ class Navbar extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { handleSearch, listOfFav, toggleFav, content } = this.props;
+    const { handleSearch, listOfFav, toggleCrush, content } = this.props;
 
     const { activeItem } = this.state;
 
@@ -24,10 +24,10 @@ class Navbar extends React.Component {
       listOfFav.map(item => {
         const TOTO = {}
 
-        TOTO.key = content[item].name;
-        TOTO.value = content[item].name;
-        TOTO.text = content[item].name;
-        TOTO.image = content[item].imageXs
+        TOTO.key = content[item - 1].name;
+        TOTO.value = content[item - 1].id;
+        TOTO.text = content[item - 1].name;
+        TOTO.image = content[item - 1].imageXs
 
         return TOTO
 
@@ -71,9 +71,11 @@ class Navbar extends React.Component {
               size="large"
             />
             <Select
+              onChange={toggleCrush}
               color="pink"
               options={ScrollingFav}
               placeholder="My Crush"
+
 
             />
           </Menu.Item>

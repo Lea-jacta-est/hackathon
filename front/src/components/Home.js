@@ -42,7 +42,9 @@ class Home extends React.Component {
   toggleGender = (event, { value }) => {
     this.setState({ gender: value });
   };
-
+  toggleCrush = (event, { value }) => {
+    this.props.history.push(`/profil-hero/${value}`)
+  };
 
 
   handleSearch = e => {
@@ -76,6 +78,7 @@ class Home extends React.Component {
           content={this.state.content}
           handleSearch={this.handleSearch}
           listOfFav={this.state.fav}
+          toggleCrush={this.toggleCrush}
         />
         <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
           <Grid>
