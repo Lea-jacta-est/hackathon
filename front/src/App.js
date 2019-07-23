@@ -1,12 +1,8 @@
-import React from 'react';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import {
-  Switch,
-  Route
-} from 'react-router-dom';
-import HeroProfil from './components/HeroProfil';
-
+import React from "react";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import { Switch, Route } from "react-router-dom";
+import HeroProfil from "./components/HeroProfil";
 
 function App() {
   return (

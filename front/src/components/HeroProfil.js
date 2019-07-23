@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Grid, Image, Container } from "semantic-ui-react";
+import {
+  Grid,
+  Image,
+  Container,
+  Segment,
+  Table,
+  Header
+} from "semantic-ui-react";
 import axios from "axios";
 import NavBarProfile from "./NavbarProfile";
 import { Radar } from "react-chartjs-2";
@@ -49,25 +56,75 @@ const HeroProfil = props => {
     <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
       <NavBarProfile />
 
-      <Grid.Column width={12}>
-        <h1>{data.name}</h1>
-        <Image src={data.imageLg} centered />
-        <Radar data={stat} />
+      <Grid columns={3} divided>
+        <Grid.Row stretched>
+          <Grid.Column>
+            <Image src={data.imageLg} style={{ width: 350 }} centered />
+          </Grid.Column>
+          <Grid.Column>
+            <Header as="h1" color="back" style={{ marginBottom: -10 }}>
+              {data.fullName} alias {data.name}
+            </Header>
+            <Header as="h2" color="back" style={{ marginBottom: -10 }}>
+              {data.gender} {data.race}
+            </Header>
+            <Table color="pink">
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    alignment: {data.alignment}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>base: {data.base}</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
 
-        <h1>{data.gender}</h1>
-        <h1>{data.race}</h1>
-        <h1>{data.height}</h1>
-        <h1>{data.weight}</h1>
-        <h1>{data.eyeColor}</h1>
-        <h1>{data.hairColor}</h1>
-        <h1>{data.fullName}</h1>
-        <h1>{data.placeOfBirth}</h1>
-        <h1>{data.alignment}</h1>
-        <h1>{data.occupation}</h1>
-        <h1>{data.base}</h1>
-        <h1>{data.groupAffiliation}</h1>
-        <h1>{data.relatives}</h1>
-      </Grid.Column>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>Height: {data.height}</Table.Cell>
+                  <Table.Cell>weiht: {data.weight}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Hair color: {data.hairColor}</Table.Cell>
+                  <Table.Cell>Eye color: {data.eyeColor}</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+            <Segment>
+              <Radar data={stat} />
+            </Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Occupation:
+                <br />
+                {data.occupation}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Place Of Birth:
+                <br />
+                {data.placeOfBirth}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Groups:
+                <br />
+                {data.groupAffiliation}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Relatives:
+                <br />
+                {data.relatives}
+              </Header>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Container>
   );
 };
