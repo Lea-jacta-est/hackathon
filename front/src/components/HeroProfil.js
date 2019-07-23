@@ -1,90 +1,150 @@
-import React, { useState } from 'react';
-import { Grid, Image, Container } from 'semantic-ui-react';
-import axios from 'axios';
-import StarRatings from 'react-star-ratings';
-import NavBarProfile from './NavbarProfile'
+import React, { useState } from "react";
+import {
+  Grid,
+  Image,
+  Container,
+  Segment,
+  Table,
+  Header,
+  Button,
+  Icon
+} from "semantic-ui-react";
+import axios from "axios";
+import NavBarProfile from "./NavbarProfile";
+import { Radar } from "react-chartjs-2";
 
-
-
-const HeroProfil = (props) => {
+const HeroProfil = props => {
   const [data, setData] = useState([]);
   React.useEffect(() => {
     const { id } = props.match.params;
     const fetchData = async () => {
-      const result = await axios(
-        `/api/superheros/${id}`
-      );
+      const result = await axios(`/api/superheros/${id}`);
       setData(result.data[0]);
     };
     fetchData();
   }, [props.match.params]);
 
+  const stat = {
+    labels: [
+      "Intelligence",
+      "Combat",
+      "Durability",
+      "Power",
+      "Speed",
+      "Strength"
+    ],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgba(179,181,198,0.2)",
+        borderColor: "#ee0f7e",
+        pointBackgroundColor: "rgba(179,181,198,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(179,181,198,1)",
+        data: [
+          data.intelligence,
+          data.combat,
+          data.durability,
+          data.power,
+          data.speed,
+          data.strength
+        ]
+      }
+    ]
+  };
+
+  const options = {
+    legend: {
+      display: false
+    }
+  };
+
   return (
-    <Container style={{ marginTop: '8.5rem', textAlign: 'center' }} fluid>
+    <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
       <NavBarProfile />
 
-      <Grid.Column width={12}>
-        <h1>{data.name}</h1>
-        <Image src={data.imageLg} centered />
-        <h1>Intelligence</h1>
-        <StarRatings
-          rating={data.intelligence && data.intelligence * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='intelligence'
-        />
-        <h1>Combat</h1>
-        <StarRatings
-          rating={data.combat && data.combat * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='combat'
-        />
-        <h1>Durability</h1>
-        <StarRatings
-          rating={data.durability && data.durability * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='durability'
-        />
-        <h1>Power</h1>
-        <StarRatings
-          rating={data.power && data.power * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='power'
-        />
-        <h1>Speed</h1>
-        <StarRatings
-          rating={data.speed && data.speed * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='speed'
-        />
-        <h1>Strength</h1>
-        <StarRatings
-          rating={data.strength && data.strength * 5 / 100}
-          starRatedColor="orange"
-          numberOfStars={5}
-          name='strength'
-        />
-        <h1>{data.gender}</h1>
-        <h1>{data.race}</h1>
-        <h1>{data.height}</h1>
-        <h1>{data.weight}</h1>
-        <h1>{data.eyeColor}</h1>
-        <h1>{data.hairColor}</h1>
-        <h1>{data.fullName}</h1>
-        <h1>{data.placeOfBirth}</h1>
-        <h1>{data.alignment}</h1>
-        <h1>{data.occupation}</h1>
-        <h1>{data.base}</h1>
-        <h1>{data.groupAffiliation}</h1>
-        <h1>{data.relatives}</h1>
-      </Grid.Column>
+      <Grid columns={3} divided>
+        <Grid.Row stretched>
+          <Grid.Column>
+            <Image
+              bordered
+              ui
+              src={data.imageLg}
+              style={{ width: 400, margin: "auto" }}
+              centered
+            />
+          </Grid.Column>
+          <Grid.Column>
+            <Header as="h1" color="back" style={{ marginBottom: -10 }}>
+              {data.fullName} alias {data.name}
+            </Header>
+            <Header as="h2" color="back" style={{ marginBottom: -10 }}>
+              {data.gender} {data.race}
+            </Header>
+            <Table color="pink">
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    alignment: {data.alignment}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>base: {data.base}</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>Height: {data.height}</Table.Cell>
+                  <Table.Cell>weiht: {data.weight}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Hair color: {data.hairColor}</Table.Cell>
+                  <Table.Cell>Eye color: {data.eyeColor}</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+            <Segment>
+              <Radar data={stat} options={options} />
+            </Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Occupation:
+                <br />
+                {data.occupation}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Place Of Birth:
+                <br />
+                {data.placeOfBirth}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Groups:
+                <br />
+                {data.groupAffiliation}
+              </Header>
+            </Segment>
+            <Segment>
+              <Header as="h3" color="back" textAlign="left">
+                Relatives:
+                <br />
+                {data.relatives}
+              </Header>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+        <Button color="pink" style={{ margin: "auto" }}>
+          <Icon name="mail" />
+          Send message
+        </Button>
+      </Grid>
     </Container>
-  )
-}
+  );
+};
 
 export default HeroProfil;
-

@@ -1,51 +1,53 @@
-import React, { Fragment } from 'react';
-import { Menu, Dropdown, Header, Input } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from "react";
+import { Menu, Dropdown, Header, Input } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
-import logo from './image/logo.png';
+import logo from "./image/logo.png";
 
 class Navbar extends React.Component {
   state = {
     content: [],
-    activeItem: 'home'
-  }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    activeItem: "home"
+  };
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
     const { activeItem } = this.state;
     const { handleSearch } = this.props;
     return (
-
       <Fragment>
-        <Menu fixed="top" inverted size='massive'>
+        <Menu fixed="top" inverted size="massive">
           <Menu.Item header>
-            <Link to='/'>
-              <Header as='h1' color='pink'>
+            <Link to="/">
+              <Header as="h1" color="pink">
                 <img src={logo} alt="logo" />
                 sitePasPorno.com
-                </Header>
+              </Header>
             </Link>
           </Menu.Item>
 
-
-          <Dropdown color="pink" item text='Category'>
+          <Menu.Item
+            color="pink"
+            name="Sign Up"
+            active={activeItem === "Sign Up"}
+            onClick={this.handleItemClick}
+          >
+            <Link to="/signup">Sign Up</Link>
+          </Menu.Item>
+          <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
               <Dropdown.Item>English</Dropdown.Item>
               <Dropdown.Item>Russian</Dropdown.Item>
               <Dropdown.Item>Spanish</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Item
-            color="pink"
-            name='Sign Up'
-            active={activeItem === 'Sign Up'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Menu position='right'>
+          <Menu.Menu position="right">
             <Menu.Item>
-              <Input icon='search'
-                placeholder='Search...'
-                onChange={handleSearch} />
+              <Input
+                icon="search"
+                placeholder="Search..."
+                onChange={handleSearch}
+              />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
