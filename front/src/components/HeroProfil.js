@@ -56,6 +56,12 @@ const HeroProfil = props => {
     ]
   };
 
+  const options = {
+    legend: {
+      display: false
+    }
+  };
+
   return (
     <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
       <NavBarProfile />
@@ -63,7 +69,13 @@ const HeroProfil = props => {
       <Grid columns={3} divided>
         <Grid.Row stretched>
           <Grid.Column>
-            <Image src={data.imageLg} style={{ width: 350 }} centered />
+            <Image
+              bordered
+              ui
+              src={data.imageLg}
+              style={{ width: 400, margin: "auto" }}
+              centered
+            />
           </Grid.Column>
           <Grid.Column>
             <Header as="h1" color="back" style={{ marginBottom: -10 }}>
@@ -94,7 +106,7 @@ const HeroProfil = props => {
               </Table.Body>
             </Table>
             <Segment>
-              <Radar data={stat} />
+              <Radar data={stat} options={options} />
             </Segment>
           </Grid.Column>
           <Grid.Column>
@@ -128,8 +140,10 @@ const HeroProfil = props => {
             </Segment>
           </Grid.Column>
         </Grid.Row>
-
-
+        <Button color="pink" style={{ margin: "auto" }}>
+          <Icon name="mail" />
+          Send message
+        </Button>
       </Grid>
     </Container>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Radio, Select, Container } from "semantic-ui-react";
+import { Menu, Select, Container } from "semantic-ui-react";
 
 const colorHair = [
   { key: "No Hair", value: "No Hair", text: "No Hair" },

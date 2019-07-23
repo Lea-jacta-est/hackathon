@@ -41,16 +41,19 @@ class Navbar extends React.Component {
             <Link to="/">
               <Header as="h1" color="pink">
                 <img src={logo} alt="logo" />
-                sitePasPorno.com
+                AdoptAHeroe.com
               </Header>
             </Link>
           </Menu.Item>
+
           <Menu.Item
             color="pink"
             name="Sign Up"
             active={activeItem === "Sign Up"}
             onClick={this.handleItemClick}
-          />
+          >
+            <Link to="/signup">Sign Up</Link>
+          </Menu.Item>
           <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
               <Dropdown.Item>Popular</Dropdown.Item>
@@ -65,10 +68,11 @@ class Navbar extends React.Component {
 
           <Menu.Item>
             <Icon
-              style={{ marginTop: '1rem', minWidth: 'auto', color: 'pink' }}
+              style={{ marginTop: '1rem', minWidth: 'auto' }}
               name='shopping basket'
               aria-label="My basket"
               size="large"
+              color="pink"
             />
             <Select
               onChange={toggleCrush}
