@@ -17,7 +17,8 @@ class Home extends React.Component {
     hair: "",
     eye: "",
     hobbies: "",
-    search: ""
+    search: "",
+    fav: []
   };
 
   componentDidMount() {
@@ -41,10 +42,21 @@ class Home extends React.Component {
   toggleGender = (event, { value }) => {
     this.setState({ gender: value });
   };
+  toggleCrush = (event, { value }) => {
+    this.props.history.push(`/profil-hero/${value}`)
+  };
+
 
   handleSearch = e => {
     this.setState({ search: e.target.value });
   };
+
+  addTomonAubergine = (id) => {
+    const newFav = this.state.fav;
+    newFav.push(id);
+    this.setState({ fav: newFav })
+
+  }
 
   render() {
     const {
@@ -60,27 +72,14 @@ class Home extends React.Component {
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
     const currentContent = content.slice(indexOfFirstCard, indexOfLastCard);
 
-    // let hairColor = content
-    //   .map(color => (color.appearance.hairColor));
-    // let arrhairColor = hairColor
-    //   .reduce((arrhairColor, item) => {
-    //     return arrhairColor
-    //       .includes(item) ? arrhairColor : arrhairColor.concat([item]);
-    //   }, [])
-    //   .map(color => <div>{color}</div>)
-
-    // let eyeColor = content
-    //   .map(color => (color.appearance.eyeColor));
-    // let arreyeColor = eyeColor
-    //   .reduce((arreyeColor, item) => {
-    //     return arreyeColor
-    //       .includes(item) ? arreyeColor : arreyeColor.concat([item]);
-    //   }, [])
-    //   .map(color => <div>{color}</div>)
-
     return (
       <Fragment>
-        <Navbar handleSearch={this.handleSearch} />
+        <Navbar
+          content={this.state.content}
+          handleSearch={this.handleSearch}
+          listOfFav={this.state.fav}
+          toggleCrush={this.toggleCrush}
+        />
         <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
           <Grid>
             <Grid.Column width={3}>
@@ -100,6 +99,7 @@ class Home extends React.Component {
                 cardPerPage={cardPerPage}
               />
               <CardsCharacters
+                addTomonAubergine={this.addTomonAubergine}
                 content={currentContent}
                 gender={gender}
                 hair={hair}

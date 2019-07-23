@@ -13,6 +13,8 @@ import axios from "axios";
 import NavBarProfile from "./NavbarProfile";
 import { Radar } from "react-chartjs-2";
 
+
+
 const HeroProfil = props => {
   const [data, setData] = useState([]);
   React.useEffect(() => {
