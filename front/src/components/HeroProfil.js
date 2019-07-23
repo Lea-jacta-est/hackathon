@@ -59,10 +59,10 @@ const HeroProfil = props => {
     await axios.post('/send/')
       .then(function (response) {
         console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      })w
+        .catch(function (error) {
+          console.log(error);
+        });
   };
 
 
@@ -107,7 +107,7 @@ const HeroProfil = props => {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>Height: {data.height}</Table.Cell>
-                  <Table.Cell>weiht: {data.weight}</Table.Cell>
+                  <Table.Cell>Weight: {data.weight}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Hair color: {data.hairColor}</Table.Cell>
