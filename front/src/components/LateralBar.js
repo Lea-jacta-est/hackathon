@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Form, Radio, Select } from 'semantic-ui-react';
+import { Menu, Form, Radio, Select, Container } from 'semantic-ui-react';
 
 
 const colorHair = [
@@ -71,54 +71,88 @@ class LateralBar extends React.Component {
   render() {
     const { toggleChange, gender, toggleHair, toggleEye } = this.props;
     return (
-      <Menu style={{ marginTop: '7.2rem' }} vertical inverted fixed='left'>
+      <Container textAlign='left' style={{ paddingLeft: '10px' }}>
+        <Menu style={{ marginTop: '7.2rem' }} vertical inverted fixed='left'>
 
-        <Menu.Item>
-          <Menu.Menu>
-            <Menu.Item>
-              <Form>
-                <label>Gender</label>
-                <Menu.Item>
-                  <Form.Field>
-                    <Radio style={{ text: 'white' }}
-                      label="Female"
-                      value="Female"
-                      checked={gender === 'Female'}
-                      onChange={toggleChange}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <Radio style={{ text: 'white' }}
-                      label="Male"
-                      value="Male"
-                      checked={gender === 'Male'}
-                      onChange={toggleChange}
-                    />
-                  </Form.Field>
-                </Menu.Item>
-                <label>Hair Color</label>
-                <Menu.Item>
+          <Menu.Item>
+            <Menu.Header>Genre</Menu.Header>
+            <Menu.Menu>
 
-                  <Select
-                    onChange={toggleHair}
-                    placeholder='Hair'
-                    options={colorHair}
+              <Menu.Item>
+                <Menu.Item>
+                  <Radio style={{ text: 'white' }}
+                    label="Female"
+                    value="Female"
+                    checked={gender === 'Female'}
+                    onChange={toggleChange}
                   />
                 </Menu.Item>
-                <label>Eye Color</label>
-
                 <Menu.Item>
-                  <Select
-                    onChange={toggleEye}
-                    placeholder='Eye'
-                    options={colorEye}
+                  <Radio style={{ text: 'white' }}
+                    label="Male"
+                    value="Male"
+                    checked={gender === 'Male'}
+                    onChange={toggleChange}
                   />
                 </Menu.Item>
-              </Form>
-            </Menu.Item>
-          </Menu.Menu>
-        </Menu.Item>
-      </Menu >
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu.Item>
+
+          <Menu.Item>
+            <Menu.Header>Eyes Color</Menu.Header>
+
+            <Menu.Menu>
+              <Menu.Item>
+                <Select
+                  onChange={toggleEye}
+                  placeholder='Eye'
+                  options={colorEye}
+                />
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu.Item>
+
+          <Menu.Item>
+            <Menu.Header>Hair Color</Menu.Header>
+
+            <Menu.Menu>
+              <Menu.Item>
+                <Select
+                  onChange={toggleHair}
+                  placeholder='Hair'
+                  options={colorHair}
+                />
+
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu.Item>
+        </Menu>
+      </Container>
+      // <Menu >
+
+      //   <Menu.Item>
+      //     <Menu.Menu>
+      //       <Menu.Item>
+      //         <Form>
+      //           <label>Gender</label>
+      //           <Menu.Item>
+
+      //             <Menu.Item>
+      //              
+      //             </Menu.Item>
+      //           </Menu.Item>
+      //           <label>Hair Color</label>
+      //           <Menu.Item>
+
+      //            
+      //           </Menu.Item>
+      //           
+      //         </Form>
+      //       </Menu.Item>
+      //     </Menu.Menu>
+      //   </Menu.Item>
+      // </Menu >
     )
   }
 }

@@ -86,7 +86,7 @@ class Home extends React.Component {
                 toggleEye={this.toggleEye} />
               />
             </Grid.Column>
-            <Grid.Column width={10}>
+            <Grid.Column width={12}>
               <Pagination
                 contentLength={content.length}
                 activePage={activePage}
