@@ -80,7 +80,7 @@ class Home extends React.Component {
         <Navbar handleSearch={this.handleSearch} />
         <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
           <Grid>
-            <Grid.Column width={4}>
+            <Grid.Column width={3}>
               <LateralBar
                 toggleChange={this.toggleChange}
                 gender={gender}
