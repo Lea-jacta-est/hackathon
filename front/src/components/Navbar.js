@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
-import { Menu, Dropdown, Header, Input, Icon, Select } from "semantic-ui-react";
+import { Menu, Dropdown, Header, Input, Icon, Select, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import NotificationBadge from 'react-notification-badge';
+import { Effect } from 'react-notification-badge';
 
 import logo from "./image/logo.png";
 
@@ -12,7 +14,7 @@ class Navbar extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { handleSearch, listOfFav, toggleCrush, content } = this.props;
+    const { handleSearch, listOfFav, toggleCrush, content, count } = this.props;
 
     // const { activeItem } = this.state;
 
@@ -50,13 +52,20 @@ class Navbar extends React.Component {
           </Dropdown>
 
           <Menu.Item>
-            <Icon
-              style={{ marginTop: "1rem", minWidth: "auto" }}
-              name="shopping basket"
-              aria-label="My basket"
-              size="large"
-              color="pink"
-            />
+            <Grid>
+              <NotificationBadge count={count} effect={Effect.ROTATE_X} style={{ color: 'white', backgroundColor: '#ee0f7e' }} />
+              <Icon
+                style={{ marginTop: "1rem", minWidth: "auto" }}
+                name="shopping basket"
+                aria-label="My basket"
+                size="large"
+                color="pink"
+              />
+            </Grid>
+
+            <Menu.Menu>
+              <Menu.Item></Menu.Item>
+            </Menu.Menu>
             <Select
               onChange={toggleCrush}
               color="pink"

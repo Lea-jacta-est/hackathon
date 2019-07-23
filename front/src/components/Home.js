@@ -19,7 +19,8 @@ class Home extends React.Component {
     hobbies: "",
     search: "",
     fav: [],
-    isFiltered: true
+    isFiltered: true,
+    count: 0
   };
 
   componentDidMount() {
@@ -52,6 +53,7 @@ class Home extends React.Component {
     const newFav = this.state.fav;
     newFav.push(id);
     this.setState({ fav: newFav });
+    this.inc1();
   };
 
   handleResetFilters = () => {
@@ -64,6 +66,18 @@ class Home extends React.Component {
     }));
   };
 
+  inc1 = () => {
+    this.notifyInc(1);
+  }
+
+  notifyInc = (n) => {
+    let count = this.state.count + n;
+    if (count < 0) { count = 0 };
+    this.setState({
+      count: count
+    });
+  }
+
   render() {
     const {
       content,
@@ -73,7 +87,8 @@ class Home extends React.Component {
       hair,
       eye,
       search,
-      isFiltered
+      isFiltered,
+      count
     } = this.state;
 
     let filteredContent =
@@ -102,6 +117,7 @@ class Home extends React.Component {
           handleSearch={this.handleSearch}
           listOfFav={this.state.fav}
           toggleCrush={this.toggleCrush}
+          count={count}
         />
         <Container style={{ marginTop: "8.5rem", textAlign: "center", marginBottom: 100 }} fluid>
           <Grid>
