@@ -1,8 +1,12 @@
 import React, { Fragment } from "react";
-import { Menu, Dropdown, Header, Input } from "semantic-ui-react";
+import { Menu, Dropdown, Header, Input, Icon, Select } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 import logo from "./image/logo.png";
+
+
+
+
 
 class Navbar extends React.Component {
   state = {
@@ -12,8 +16,23 @@ class Navbar extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
+    const { handleSearch, listOfFav, toggleFav } = this.props;
+
     const { activeItem } = this.state;
-    const { handleSearch } = this.props;
+
+
+    const ScrollingFav =
+      listOfFav.map(item => {
+        const TOTO = {}
+
+        TOTO.key = String(item);
+        TOTO.value = String(item);
+        TOTO.text = String(item);
+        return TOTO
+
+
+      });
+
     return (
       <Fragment>
         <Menu fixed="top" inverted size="massive">
@@ -33,11 +52,29 @@ class Navbar extends React.Component {
           />
           <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
-              <Dropdown.Item>English</Dropdown.Item>
-              <Dropdown.Item>Russian</Dropdown.Item>
-              <Dropdown.Item>Spanish</Dropdown.Item>
+              <Dropdown.Item>Popular</Dropdown.Item>
+              <Dropdown.Item>Most View</Dropdown.Item>
+              <Dropdown.Item>Amateur</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+
+          <Menu.Item>
+            <Icon
+              style={{ marginTop: '1rem', minWidth: 'auto', color: 'pink' }}
+              name='shopping basket'
+              aria-label="My basket"
+              size="large"
+            />
+            <Select
+              color="pink"
+              onChange={() => toggleFav(ScrollingFav)}
+              option={ScrollingFav}
+              placeholder="My basket"
+
+            />
+          </Menu.Item>
+
+
           <Menu.Menu position="right">
             <Menu.Item>
               <Input
@@ -48,7 +85,7 @@ class Navbar extends React.Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-      </Fragment>
+      </Fragment >
     );
   }
 }

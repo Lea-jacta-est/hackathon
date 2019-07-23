@@ -5,11 +5,15 @@ import {
   Container,
   Segment,
   Table,
-  Header
+  Header,
+  Button,
+  Icon
 } from "semantic-ui-react";
 import axios from "axios";
 import NavBarProfile from "./NavbarProfile";
 import { Radar } from "react-chartjs-2";
+
+
 
 const HeroProfil = props => {
   const [data, setData] = useState([]);
@@ -124,6 +128,8 @@ const HeroProfil = props => {
             </Segment>
           </Grid.Column>
         </Grid.Row>
+
+
       </Grid>
     </Container>
   );

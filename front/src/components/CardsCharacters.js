@@ -1,9 +1,9 @@
 import React from "react";
-import { Card, Icon, Image, Container, Grid, List } from "semantic-ui-react";
+import { Card, Icon, Image, Container, Grid, List, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-const CardsCharacters = ({ content, gender, hair, eye, search, id }) => (
+const CardsCharacters = ({ content, gender, hair, eye, search, id, addTomonAubergine }) => (
   <Container style={{ marginTop: "4.5rem" }}>
     <Grid columns={4}>
       {content &&
@@ -44,6 +44,16 @@ const CardsCharacters = ({ content, gender, hair, eye, search, id }) => (
                         />{" "}
                         {character.alignment}
                       </List.Item>
+                      <Button
+                        style={{ margin: "auto" }}
+                        icon labelPosition='left'
+                        color="pink"
+                        onClick={() => addTomonAubergine(character.id)}
+                      >
+                        <Icon name='heart' />
+                        Add to my basket
+    </Button>
+
                     </List>
                   </Card.Description>
                 </Card.Content>

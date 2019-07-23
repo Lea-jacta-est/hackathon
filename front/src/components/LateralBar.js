@@ -67,38 +67,12 @@ class LateralBar extends React.Component {
   state = {};
 
   render() {
-    const { toggleChange, gender, toggleHair, toggleEye } = this.props;
+    const { toggleChange, toggleHair, toggleEye } = this.props;
 
     return (
       <Container textAlign="left" style={{ paddingLeft: "10px" }}>
         <Menu style={{ marginTop: "7.2rem" }} vertical inverted fixed="left">
-          {/* Gender avec radio */}
-          {/* <Menu.Item>
-            <Menu.Header>Gender</Menu.Header>
-            <Menu.Menu>
-              <Menu.Item>
-                <Menu.Item>
-                  <Radio
-                    style={{ text: "white" }}
-                    label="Female"
-                    value="Female"
-                    checked={gender === "Female"}
-                    onChange={toggleChange}
-                  />
-                </Menu.Item>
-                <Menu.Item>
-                  <Radio
-                    style={{ text: "white" }}
-                    label="Male"
-                    value="Male"
-                    checked={gender === "Male"}
-                    onChange={toggleChange}
-                  />
-                </Menu.Item>
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu.Item> */}
-          {/* Gender sans radio */}
+
           <Menu.Item>
             <Menu.Header>Gender</Menu.Header>
             <Menu.Menu>
@@ -139,30 +113,6 @@ class LateralBar extends React.Component {
           </Menu.Item>
         </Menu>
       </Container>
-      // <Menu >
-
-      //   <Menu.Item>
-      //     <Menu.Menu>
-      //       <Menu.Item>
-      //         <Form>
-      //           <label>Gender</label>
-      //           <Menu.Item>
-
-      //             <Menu.Item>
-      //
-      //             </Menu.Item>
-      //           </Menu.Item>
-      //           <label>Hair Color</label>
-      //           <Menu.Item>
-
-      //
-      //           </Menu.Item>
-      //
-      //         </Form>
-      //       </Menu.Item>
-      //     </Menu.Menu>
-      //   </Menu.Item>
-      // </Menu >
     );
   }
 }
