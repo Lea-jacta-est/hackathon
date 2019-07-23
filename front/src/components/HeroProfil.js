@@ -5,7 +5,9 @@ import {
   Container,
   Segment,
   Table,
-  Header
+  Header,
+  Button,
+  Icon
 } from "semantic-ui-react";
 import axios from "axios";
 import NavBarProfile from "./NavbarProfile";
@@ -136,6 +138,10 @@ const HeroProfil = props => {
             </Segment>
           </Grid.Column>
         </Grid.Row>
+        <Button color="pink" style={{ margin: "auto" }}>
+          <Icon name="mail" />
+          Send message
+        </Button>
       </Grid>
     </Container>
   );
