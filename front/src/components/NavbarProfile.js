@@ -1,42 +1,40 @@
-import React, { Fragment } from 'react';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import React, { Fragment } from "react";
+import { Menu, Dropdown, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import logo from './image/logo.png';
+import logo from "./image/logo.png";
 
 class Navbar extends React.Component {
   state = {
     content: [],
-    activeItem: 'home'
-  }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    activeItem: "home"
+  };
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
+    // const { activeItem } = this.state;
     return (
-
       <Fragment>
-        <Menu fixed="top" inverted size='massive'>
+        <Menu fixed="top" inverted size="massive">
           <Menu.Item header>
-            <Link to="/">
-              <Header as='h1' color='pink'>
+            <Link to="/home">
+              <Header as="h1" color="pink">
                 <img src={logo} alt="logo" />
                 sitePasPorno.com
-                </Header>
+              </Header>
             </Link>
           </Menu.Item>
-          <Menu.Item
-            color="pink"
-            name="Sign Up"
-            active={activeItem === "Sign Up"}
-            onClick={this.handleItemClick}
-          />
-          <Dropdown color="pink" item text='Category'>
+          <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
               <Dropdown.Item>English</Dropdown.Item>
               <Dropdown.Item>Russian</Dropdown.Item>
               <Dropdown.Item>Spanish</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Menu.Menu position="right">
+            <Menu.Item color="pink" name="Logout">
+              <Link to="/">Logout</Link>
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
       </Fragment>
     );

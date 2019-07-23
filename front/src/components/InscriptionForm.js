@@ -87,7 +87,12 @@ class InscriptionForm extends React.Component {
         imageLg: avatar
       })
       .catch(err => err.message);
+    this.redirect();
   }
+
+  redirect = () => {
+    this.props.history.push("/home");
+  };
 
   render() {
     return (

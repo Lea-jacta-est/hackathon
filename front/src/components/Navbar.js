@@ -12,13 +12,13 @@ class Navbar extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
+    // const { activeItem } = this.state;
     const { handleSearch } = this.props;
     return (
       <Fragment>
         <Menu fixed="top" inverted size="massive">
           <Menu.Item header>
-            <Link to="/">
+            <Link to="/home">
               <Header as="h1" color="pink">
                 <img src={logo} alt="logo" />
                 sitePasPorno.com
@@ -26,14 +26,6 @@ class Navbar extends React.Component {
             </Link>
           </Menu.Item>
 
-          <Menu.Item
-            color="pink"
-            name="Sign Up"
-            active={activeItem === "Sign Up"}
-            onClick={this.handleItemClick}
-          >
-            <Link to="/signup">Sign Up</Link>
-          </Menu.Item>
           <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
               <Dropdown.Item>English</Dropdown.Item>
@@ -42,6 +34,9 @@ class Navbar extends React.Component {
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Menu position="right">
+            <Menu.Item color="pink" name="Logout">
+              <Link to="/">Logout</Link>
+            </Menu.Item>
             <Menu.Item>
               <Input
                 icon="search"
