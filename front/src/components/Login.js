@@ -2,12 +2,13 @@ import React from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import logo from './image/logo.png';
+import '../App.css';
 
 const Login = () => (
-  <Grid textAlign='center' style={{ height: '100vh', backgroundColor: 'black' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
+  <Grid textAlign='center' style={{ height: '100vh', width: '100vw', backgroundColor: 'black' }} verticalAlign='bottom' className='bg-image' >
+    <Grid.Column style={{ maxWidth: 450, marginBottom: 60, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 10 }}>
       <Header as='h2' color='pink' textAlign='center'>
-        <Image src={logo} /> Log-in to your account
+        <Image src={logo} />Login to AubergeMoi.com
       </Header>
       <Form size='large'>
         <Segment stacked>
@@ -33,7 +34,7 @@ const Login = () => (
           </Link>
       </Message>
     </Grid.Column>
-  </Grid>
+  </Grid >
 )
 
 export default Login;
