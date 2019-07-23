@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .jackie_text {
     color: #ee0f7e;
 }
@@ -9,12 +10,24 @@
 .ui.inverted.menu .item, .ui.inverted.menu .item>a:not(.ui) {
     background: 0 0;
     color: #ee0f7e !important;
+=======
+.fJuLdf {
+  background: #e13998 !important;
 }
 
-.ui.inverted.menu .active.item:hover {
-    background: #ee0f7e !important;
-    color: #fff !important;
+.ePEJzy {
+  background: #e13998 !important;
 }
+
+.sc-fzXfLU {
+  background: #e13998 !important;
+>>>>>>> chatbox
+}
+
+rsc-float-button {
+  background: #e13998 !important;
+}
+<<<<<<< HEAD
 
 .ui.inverted.menu .item, .ui.inverted.menu .item>a:not(.ui) {
     background: 0 0;
@@ -31,3 +44,5 @@
     font-weight: 800;
     color: #e03997 !important;
 }
+=======
+>>>>>>> chatbox
