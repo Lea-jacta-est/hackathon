@@ -25,9 +25,11 @@ class Navbar extends React.Component {
           </Menu.Item>
           <Dropdown color="pink" item text="Category">
             <Dropdown.Menu>
-              <Dropdown.Item>English</Dropdown.Item>
-              <Dropdown.Item>Russian</Dropdown.Item>
-              <Dropdown.Item>Spanish</Dropdown.Item>
+              <Dropdown.Item>Popular</Dropdown.Item>
+              <Dropdown.Item>Most View</Dropdown.Item>
+              <Dropdown.Item>Amateur</Dropdown.Item>
+              <Dropdown.Item>Quic'n'Dirty</Dropdown.Item>
+              <Dropdown.Item>Open Source in your Area</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Menu position="right">

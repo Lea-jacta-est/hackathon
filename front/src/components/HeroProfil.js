@@ -75,7 +75,7 @@ const HeroProfil = props => {
   };
 
   return (
-    <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
+    <Container style={{ marginTop: "8.5rem", textAlign: "center", marginBottom: 100 }} fluid>
       <NavBarProfile />
 
       <Grid columns={3} divided>

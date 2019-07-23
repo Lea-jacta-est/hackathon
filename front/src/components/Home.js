@@ -103,7 +103,7 @@ class Home extends React.Component {
           listOfFav={this.state.fav}
           toggleCrush={this.toggleCrush}
         />
-        <Container style={{ marginTop: "8.5rem", textAlign: "center" }} fluid>
+        <Container style={{ marginTop: "8.5rem", textAlign: "center", marginBottom: 100 }} fluid>
           <Grid>
             <Grid.Column width={3}>
               <LateralBar

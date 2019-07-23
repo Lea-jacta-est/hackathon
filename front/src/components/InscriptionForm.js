@@ -96,7 +96,7 @@ class InscriptionForm extends React.Component {
 
   render() {
     return (
-      <Segment inverted style={{ width: "80%", margin: "auto", marginTop: 50 }}>
+      <Segment inverted style={{ width: "80%", margin: "auto", marginTop: 50, marginBottom: 100 }}>
         <Form inverted>
           <Header as="h1" color="pink">
             Sign up
