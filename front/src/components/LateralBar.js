@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Radio, Select, Container } from "semantic-ui-react";
+import { Menu, Radio, Select, Container, Button } from "semantic-ui-react";
 
 const colorHair = [
   { key: "No Hair", value: "No Hair", text: "No Hair" },
@@ -67,7 +67,7 @@ class LateralBar extends React.Component {
   state = {};
 
   render() {
-    const { toggleChange, gender, toggleHair, toggleEye } = this.props;
+    const { toggleGender, gender, eye, hair, toggleHair, toggleEye, resetFilters } = this.props;
 
     return (
       <Container textAlign="left" style={{ paddingLeft: "10px" }}>
@@ -104,8 +104,9 @@ class LateralBar extends React.Component {
             <Menu.Menu>
               <Menu.Item>
                 <Select
-                  onChange={toggleChange}
+                  onChange={toggleGender}
                   placeholder="Gender"
+                  value={gender}
                   options={genderChoice}
                 />
               </Menu.Item>
@@ -118,6 +119,7 @@ class LateralBar extends React.Component {
                 <Select
                   onChange={toggleEye}
                   placeholder="Eye"
+                  value={eye}
                   options={colorEye}
                 />
               </Menu.Item>
@@ -132,10 +134,17 @@ class LateralBar extends React.Component {
                 <Select
                   onChange={toggleHair}
                   placeholder="Hair"
+                  value={hair}
                   options={colorHair}
                 />
               </Menu.Item>
             </Menu.Menu>
+          </Menu.Item>
+
+          <Menu.Item style={{ margin: "auto" }}>
+            <Button floated="right" inverted color='pink' onClick={resetFilters}>
+              View all
+              </Button>
           </Menu.Item>
         </Menu>
       </Container>
