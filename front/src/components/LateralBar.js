@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Select, Container } from "semantic-ui-react";
+import { Menu, Select, Container, Button } from "semantic-ui-react";
 
 const colorHair = [
   { key: "No Hair", value: "No Hair", text: "No Hair" },
@@ -12,7 +12,11 @@ const colorHair = [
   { key: "Pink", value: "Pink", text: "Pink" },
   { key: "Red", value: "Red", text: "Red" },
   { key: "Auburn", value: "Auburn", text: "Auburn" },
-  { key: "Strawberry Blond", value: "Strawberry Blond", text: "Strawberry Blond" },
+  {
+    key: "Strawberry Blond",
+    value: "Strawberry Blond",
+    text: "Strawberry Blond"
+  },
   { key: "black", value: "black", text: "black" },
   { key: "Blue", value: "Blue", text: "Blue" },
   { key: "Green", value: "Green", text: "Green" },
@@ -46,7 +50,11 @@ const colorEye = [
   { key: "Silver", value: "Silver", text: "Silver" },
   { key: "Yellow / Red", value: "Yellow / Red", text: "Yellow / Red" },
   { key: "Grey", value: "Grey", text: "Grey" },
-  { key: "Yellow (without irises)", value: "Yellow (without irises)", text: "Yellow (without irises)" },
+  {
+    key: "Yellow (without irises)",
+    value: "Yellow (without irises)",
+    text: "Yellow (without irises)"
+  },
   { key: "Gold", value: "Gold", text: "Gold" },
   { key: "Blue / White", value: "Blue / White", text: "Blue / White" },
   { key: "Hazel", value: "Hazel", text: "Hazel" },
@@ -61,25 +69,33 @@ const colorEye = [
 const genderChoice = [
   { key: "Male", value: "Male", text: "Male" },
   { key: "Female", value: "Female", text: "Female" },
-  { key: "Reptilien", value: "Reptilien", text: "Reptilien" },
+  { key: "Reptilien", value: "Reptilien", text: "Reptilien" }
 ];
 class LateralBar extends React.Component {
   state = {};
 
   render() {
-    const { toggleChange, toggleHair, toggleEye } = this.props;
+    const {
+      toggleGender,
+      gender,
+      eye,
+      hair,
+      toggleHair,
+      toggleEye,
+      resetFilters
+    } = this.props;
 
     return (
       <Container textAlign="left" style={{ paddingLeft: "10px" }}>
         <Menu style={{ marginTop: "7.2rem" }} vertical inverted fixed="left">
-
           <Menu.Item>
             <Menu.Header>Gender</Menu.Header>
             <Menu.Menu>
               <Menu.Item>
                 <Select
-                  onChange={toggleChange}
+                  onChange={toggleGender}
                   placeholder="Gender"
+                  value={gender}
                   options={genderChoice}
                 />
               </Menu.Item>
@@ -92,6 +108,7 @@ class LateralBar extends React.Component {
                 <Select
                   onChange={toggleEye}
                   placeholder="Eye"
+                  value={eye}
                   options={colorEye}
                 />
               </Menu.Item>
@@ -106,10 +123,22 @@ class LateralBar extends React.Component {
                 <Select
                   onChange={toggleHair}
                   placeholder="Hair"
+                  value={hair}
                   options={colorHair}
                 />
               </Menu.Item>
             </Menu.Menu>
+          </Menu.Item>
+
+          <Menu.Item style={{ margin: "auto" }}>
+            <Button
+              floated="right"
+              inverted
+              color="pink"
+              onClick={resetFilters}
+            >
+              View all
+            </Button>
           </Menu.Item>
         </Menu>
       </Container>
